@@ -82,6 +82,7 @@ body {
     color: #bbb;
 }
 
+/* 카카오 맵 관련 */
 .map-container {
     width: 100%;            /* 화면 너비에 맞춤 */
     max-width: 600px;       /* 최대 너비 설정 */
@@ -103,7 +104,7 @@ body {
         aspect-ratio: 1 / 1; /* 모바일 비율 */
     }
 }
-
+/* 카카오 맵 관련 END */
 
 h1 {
     font-size: 1.5em;
