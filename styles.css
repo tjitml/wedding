@@ -82,6 +82,29 @@ body {
     color: #bbb;
 }
 
+.map-container {
+    width: 100%;            /* 화면 너비에 맞춤 */
+    max-width: 600px;       /* 최대 너비 설정 */
+    aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
+    margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
+    border-radius: 10px;    /* 모서리 둥글게 */
+    overflow: hidden;       /* 비율에 맞게 자름 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        aspect-ratio: 4 / 3; /* 태블릿 비율 */
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        aspect-ratio: 1 / 1; /* 모바일 비율 */
+    }
+}
+
+
 h1 {
     font-size: 1.5em;
     color: #5a9;
