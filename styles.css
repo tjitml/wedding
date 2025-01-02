@@ -89,9 +89,10 @@ body {
     aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
     margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
     border-radius: 10px;    /* 모서리 둥글게 */
-    overflow: hidden;       /* 넘치는 내용 숨김 */
     position: relative;     /* 위치 설정 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    overflow: hidden;       /* 넘치는 내용 숨김 */
+    background-color: #f0f0f0; /* 지도 로딩 중 배경색 */
 }
 
 #daumRoughmapContainer1735810736505 {
