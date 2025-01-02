@@ -24,12 +24,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-// 카카오맵 사이즈
-document.addEventListener("DOMContentLoaded", function () {
-    new daum.roughmap.Lander({
-        "timestamp": "1735810736505",
-        "key": "2moh7",
-        "mapWidth": "100%",  /* 상대적 크기 */
-        "mapHeight": "100%"  /* 상대적 크기 */
-    }).render();
-});
