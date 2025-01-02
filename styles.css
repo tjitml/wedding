@@ -85,7 +85,7 @@ body {
 /* 카카오 맵 관련 */
 .map-container {
     width: 100%;            /* 화면 너비에 맞춤 */
-    max-width: auto;/*600px;*/       /* 최대 너비 설정 */
+    max-width: 600px;       /* 최대 너비 설정 */
     aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
     margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
     border-radius: 10px;    /* 모서리 둥글게 */
