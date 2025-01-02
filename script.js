@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
+// 카카오맵 사이즈
 document.addEventListener("DOMContentLoaded", function () {
     new daum.roughmap.Lander({
         "timestamp": "1735810736505",
