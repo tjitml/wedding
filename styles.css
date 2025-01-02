@@ -83,6 +83,23 @@ body {
 }
 
 /* 카카오 맵 관련 */
+.map-container {
+    aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
+    margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
+    border-radius: 10px;    /* 모서리 둥글게 */
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        aspect-ratio: 4 / 3; /* 태블릿 비율 */
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        aspect-ratio: 1 / 1; /* 모바일 비율 */
+    }
+}
 /* 카카오 맵 관련 END */
 
 h1 {
