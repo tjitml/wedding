@@ -25,6 +25,70 @@ body {
     border-radius: 10px; /* 모서리를 둥글게 설정 */
 }
 
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.thumbnail {
+    width: 100%; /* 부모 컨테이너 너비에 맞춤 */
+    height: 180px; /* 고정 높이 설정 */
+    object-fit: cover; /* 이미지를 자르고 비율 유지 */
+    border-radius: 8px; /* 모서리를 둥글게 */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 2.5% auto;
+    /* max-width: 80%; */
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+#daumRoughmapContainer {
+    width: 100%;
+    height: 360px;
+    position: relative;
+    margin: 20px 0;
+}
+
 h1 {
     font-size: 2em;
     color: #5a9;
