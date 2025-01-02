@@ -89,8 +89,17 @@ body {
     aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
     margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
     border-radius: 10px;    /* 모서리 둥글게 */
-    overflow: hidden;       /* 비율에 맞게 자름 */
+    overflow: hidden;       /* 넘치는 내용 숨김 */
+    position: relative;     /* 위치 설정 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+#daumRoughmapContainer1735810736505 {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* 부모에 맞게 고정 */
+    top: 0;
+    left: 0;
 }
 
 @media (max-width: 768px) {
