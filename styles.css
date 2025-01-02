@@ -31,6 +31,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3열 레이아웃 */
     gap: 10px;
+    margin: 20px 0;
 }
 
 .thumbnail {
