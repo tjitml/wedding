@@ -33,7 +33,8 @@
         <!-- <a href="https://maps.google.com" target="_blank">위치 보기</a> -->
         <!-- 1. 지도 노드 -->
         <div id="map-container" class="map-container">
-            <div id="daumRoughmapContainer1735810736505" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            <!-- <div id="daumRoughmapContainer1735810736505" class="root_daum_roughmap root_daum_roughmap_landing"></div> -->
+            <div id="daumRoughmapContainer1735810736505"></div>
         </div>
     </div>
     
@@ -44,15 +45,27 @@
     </div>
 
     <!-- 카카오맵 설치 스크립트 -->
+    <!-- <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script> -->
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
     <!-- 카카오맵 실행 스크립트 -->
-    <script charset="UTF-8">
+    <!-- <script charset="UTF-8">
     	new daum.roughmap.Lander({
     		"timestamp" : "1735810736505",
     		"key" : "2moh7",
     		"mapWidth" : "600",
     		"mapHeight" : "360"
     	}).render();
+    </script> -->
+    <script>
+         // DOMContentLoaded 이벤트를 사용하여 지도 초기화
+        document.addEventListener("DOMContentLoaded", function () {
+            new daum.roughmap.Lander({
+                "timestamp": "1735810736505", // 고유 ID
+                "key": "2moh7",              // 유효한 키
+                "mapWidth": "100%",          // 유동적인 크기
+                "mapHeight": "100%"          // 유동적인 높이
+            }).render();
+        });
     </script>
 
      <!-- 이미지 클릭 모달 스크립트 -->
