@@ -32,7 +32,9 @@
         <p>서울 강남구 웨딩홀</p>
         <!-- <a href="https://maps.google.com" target="_blank">위치 보기</a> -->
         <!-- 1. 지도 노드 -->
-        <div id="daumRoughmapContainer1735810736505" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
+        <div id="map-container" class="map-container">
+            <div id="daumRoughmapContainer1735810736505" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
+        </div>
     </div>
     
     <!-- 모달 -->
@@ -49,7 +51,7 @@
     		"timestamp" : "1735810736505",
     		"key" : "2moh7",
     		// "mapWidth" : "600",
-    		"mapHeight" : "<?php if(is_mobile()) { ?>250<?php } else { ?>360<?php } ?>"//"360"
+    		"mapHeight" : "360"
     	}).render();
     </script>
 
