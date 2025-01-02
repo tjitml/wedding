@@ -100,6 +100,9 @@ body {
     position: absolute; /* 부모에 맞게 고정 */
     top: 0;
     left: 0;
+    margin: 0; /* 여백 제거 */
+    padding: 0; /* 여백 제거 */
+    box-sizing: border-box; /* 추가 여백 방지 */
 }
 
 @media (max-width: 768px) {
