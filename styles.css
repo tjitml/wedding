@@ -84,7 +84,6 @@ body {
 
 /* 카카오 맵 관련 */
 .map-container {
-    aspect-ratio: 16 / 9;   /* 16:9 비율 유지 */
     margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
     border-radius: 10px;    /* 모서리 둥글게 */
 }
