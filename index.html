@@ -46,28 +46,13 @@
     <!-- 카카오맵 설치 스크립트 -->
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
     <!-- 카카오맵 실행 스크립트 -->
-    <!-- <script charset="UTF-8">
+    <script charset="UTF-8">
     	new daum.roughmap.Lander({
     		"timestamp" : "1735810736505",
     		"key" : "2moh7",
     		// "mapWidth" : "600",
     		"mapHeight" : "360"
     	}).render();
-    </script> -->
-
-     <script charset="UTF-8">
-        <?php
-        // 사용자 에이전트를 통해 모바일 기기인지 확인
-        $isMobile = (bool)preg_match('/(android|iphone|ipad|mobile)/i', $_SERVER['HTTP_USER_AGENT']);
-        
-        // 모바일일 경우와 PC일 경우에 맞는 mapHeight 설정
-        $mapHeight = $isMobile ? '300' : '500'; // 모바일이면 300, PC면 500으로 설정
-        ?>
-        new daum.roughmap.Lander({
-            "timestamp" : "1735810736505",
-            "key" : "2moh7",
-            "mapHeight" : "<?php echo $mapHeight; ?>" // PHP로 동적으로 mapHeight 설정
-        }).render();
     </script>
 
      <!-- 이미지 클릭 모달 스크립트 -->
