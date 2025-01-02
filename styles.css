@@ -29,8 +29,8 @@ body {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3열 레이아웃 */
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* 항상 3열 */
+    gap: 10px; /* 이미지 간 간격 */
     margin: 20px 0;
 }
 
@@ -86,35 +86,4 @@ h1 {
     font-size: 1.5em;
     color: #5a9;
     margin-bottom: 10px;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2열 */
-        gap: 8px; /* 간격 줄임 */
-    }
-
-    .thumbnail {
-        aspect-ratio: 1/1; /* 모바일에서도 1:1 비율 유지 */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    .image-grid {
-        grid-template-columns: 1fr; /* 1열 */
-        gap: 5px; /* 간격 더 줄임 */
-    }
-
-    .thumbnail {
-        aspect-ratio: 1/1; /* 작은 화면에서도 비율 유지 */
-    }
 }
