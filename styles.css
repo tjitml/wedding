@@ -100,6 +100,45 @@ body {
     }
 }
 /* 카카오 맵 관련 END */
+/* 텍스트 복사 버튼 스타일 */
+.copy-button-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.copy-button {
+    width: 50px; /* 버튼 이미지 크기 */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.copy-button:hover {
+    transform: scale(1.1); /* 버튼 클릭 시 확대 효과 */
+}
+
+.copy-alert {       /* 복사 완료 알림 스타일 */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f3efec;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* 기본적으로 숨김 */
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.copy-alert.show {
+    display: block; /* 표시 */
+    opacity: 1;     /* 완전히 보임 */
+}
+/* 텍스트 복사 관련 END */
 
 h1 {
     font-size: 1.5em;
