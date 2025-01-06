@@ -24,3 +24,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const copyButtons = document.querySelectorAll(".copy-button");
+    const copyAlert = document.getElementById("copy-alert");
+
+    // 복사 버튼 클릭 이벤트 처리
+    copyButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const textToCopy = this.dataset.text; // data-text 속성에서 텍스트 가져오기
+
+            // 텍스트 복사하기
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // 복사 완료 알림 표시
+                showCopyAlert();
+            }).catch(err => {
+                console.error("텍스트 복사 실패", err);
+            });
+        });
+    });
+
+    // 복사 완료 알림 표시 함수
+    function showCopyAlert() {
+        copyAlert.textContent = "텍스트가 복사되었습니다!";
+        copyAlert.classList.add("show");
+
+        // 3초 후 알림 숨김
+        setTimeout(() => {
+            copyAlert.classList.remove("show");
+        }, 3000);
+    }
+});
