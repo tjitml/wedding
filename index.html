@@ -36,7 +36,8 @@
         <!-- <div id="map-container" class="map-container"> 
             <div id="daumRoughmapContainer1735810736505" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
         </div> -->
-        <div id="map-container" class="map-container"></div>
+        <!-- <div id="map-container" class="map-container"></div> -->
+        <div id="map-container"></div>
 
         <!-- 텍스트 복사 버튼 -->
         <div class="copy-button-container">
@@ -78,7 +79,7 @@
         var map = new kakao.maps.Map(container, options);
 
         // 로드뷰 및 길찾기 툴바 제거
-        map.addControl(new kakao.maps.MapTypeControl(), kakao.maps.ControlPosition.TOPRIGHT);
+        //map.addControl(new kakao.maps.MapTypeControl(), kakao.maps.ControlPosition.TOPRIGHT);
         map.setZoomable(true); // 확대/축소 비활성화
         map.setDraggable(true); // 드래그 활성화
     </script>
