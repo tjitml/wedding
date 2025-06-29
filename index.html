@@ -52,23 +52,26 @@
     </div>
 
     <!-- Kakao Map SDK 불러오기 -->
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=09eb5285425954e3c41cc3173bebd1d1&autoload=false"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=09eb5285425954e3c41cc3173bebd1d1&autoload=false"></script>
     <script>
-        kakao.maps.load(function () {
-            const container = document.getElementById("map");
-            const options = {
-                center: new kakao.maps.LatLng(37.54086, 127.07049), // 원하는 위치로 수정
-                level: 3,
-                draggable: false,
-                disableDoubleClickZoom: true
-            };
-            const map = new kakao.maps.Map(container, options);
-            const marker = new kakao.maps.Marker({
+        document.addEventListener("DOMContentLoaded", function () {
+            kakao.maps.load(function () {
+                const container = document.getElementById("map");
+                const options = {
+                    center: new kakao.maps.LatLng(37.54086, 127.07049),
+                    level: 3,
+                    draggable: false,
+                    disableDoubleClickZoom: true
+                };
+                const map = new kakao.maps.Map(container, options);
+                new kakao.maps.Marker({
                 position: options.center,
                 map: map
             });
         });
+    });
     </script>
+
 
 
      <!-- 이미지 클릭 모달 스크립트 -->
