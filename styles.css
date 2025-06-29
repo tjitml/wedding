@@ -102,13 +102,6 @@ body {
         height: 200px;      /* 모바일 비율 */
     }
 }
-/* 카카오 맵 내 불필요한 UI 요소 숨기기 */
-.roughmap_makers,
-.roughmap_btn,
-.roughmap_link,
-.roughmap_address {
-    display: none !important;
-}
 /* 카카오 맵 관련 END */
 
 /* 텍스트 복사 버튼 스타일 */
