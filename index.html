@@ -56,13 +56,13 @@
             kakao.maps.load(function () {
                 const container = document.getElementById("map");
                 const options = {
-                    center: new kakao.maps.LatLng(37.54044, 127.07104),
+                    center: new kakao.maps.LatLng(37.54062, 127.07112),
                     level: 3,
                     draggable: true,
                     disableDoubleClickZoom: true
                 };
                 const map = new kakao.maps.Map(container, options);
-                const markerPosition = new kakao.maps.LatLng(37.54044, 127.07104);
+                const markerPosition = new kakao.maps.LatLng(37.54062, 127.07112);
                 const marker = new kakao.maps.Marker({
                     position: markerPosition,
                     map: map
