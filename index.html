@@ -56,20 +56,21 @@
             kakao.maps.load(function () {
                 const container = document.getElementById("map");
                 const options = {
-                    center: new kakao.maps.LatLng(37.5413, 127.0689), // 건대 스타시티 위치
+                    center: new kakao.maps.LatLng(37.54086, 127.07049),
                     level: 3,
                     draggable: true,
                     disableDoubleClickZoom: true
                 };
                 const map = new kakao.maps.Map(container, options);
+                const markerPosition = new kakao.maps.LatLng(37.54086, 127.07049);
                 const marker = new kakao.maps.Marker({
-                    position: options.center,
+                    position: markerPosition,
                     map: map
                 });
-                const iwContent = '<div style="padding:5px; font-size:13px;">건대 스타시티 아트홀</div>';
+        
                 const infowindow = new kakao.maps.InfoWindow({
-                    content: iwContent,
-                    position: options.center
+                    content: '<div style="padding:5px;font-size:13px;">스타시티 아트홀 예식장</div>',
+                    position: markerPosition
                 });
                 infowindow.open(map, marker);
             });
