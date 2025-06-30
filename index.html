@@ -40,10 +40,10 @@
             <a href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EC%8B%9C%ED%8B%B0%EC%95%84%ED%8A%B8%ED%99%80%20%EC%9B%A8%EB%94%A9/place/13541226?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506301953&locale=ko&svcName=map_pcv5&searchText=%EC%8A%A4%ED%83%80%EC%8B%9C%ED%8B%B0%EC%95%84%ED%8A%B8%ED%99%80%20%EC%9B%A8%EB%94%A9" target="_blank">
                 <img src="naver_map.jpg" alt="네이버지도 보기">
             </a>
-            <a href="#" onclick="handleMobileLink('tmap://route?goalx=127.07142&goaly=37.54072&goalname=스타시티%20아트홀')">
+            <a href="#" onclick="handleMobileLink(event, 'tmap://route?goalx=127.07142&goaly=37.54072&goalname=스타시티%20아트홀')">
                 <img src="t_map.jpg" alt="티맵으로 보기">
             </a>
-            <a href="#" onclick="handleMobileLink('kakaonavi://route?ep=127.07142,37.54072&ename=스타시티아트홀')">
+            <a href="#" onclick="handleMobileLink(event, 'kakaonavi://route?ep=127.07142,37.54072&ename=스타시티아트홀')">
                 <img src="kakao_navi.jpg" alt="카카오내비로 보기">
             </a>
         </div>
@@ -96,6 +96,7 @@
     <!-- 티맵, 카카오내비 경고창 -->
     <script>
         function handleMobileLink(uri) {
+            event.preventDefault(); // 💡 페이지 이동 방지!
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
             if (isMobile) {
