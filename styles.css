@@ -108,7 +108,7 @@ body {
   margin-top: 16px;
   display: flex;
   justify-content: center;
-  gap: 70px; /* PC 기준 간격 넓게 */
+  gap: 200px; /* PC 기준 간격 넓게 */
   flex-wrap: wrap;
 }
 
