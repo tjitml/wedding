@@ -1,19 +1,19 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fffdf7;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5efe5; /* 은은한 베이지 배경 */
+  color: #444;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fffdf7;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #fffdf8; /* 따뜻한 오프화이트 카드 배경 */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .image-container {
