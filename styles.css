@@ -108,7 +108,7 @@ body {
   margin-top: 16px;
   display: flex;
   justify-content: center;
-  gap: 200px; /* PC 기준 간격 넓게 */
+  gap: 24px;
   flex-wrap: wrap;
 }
 
@@ -123,13 +123,27 @@ body {
   transform: scale(1.05);
 }
 
-/* 모바일에서 버튼 크기 줄이기 */
+/* 모바일: 버튼 작게 */
 @media (max-width: 480px) {
+  .map-link-buttons {
+    gap: 12px;
+  }
+
   .map-link-buttons img {
-    width: 100px; /* 더 작게 줄이기 */
+    width: 100px;
   }
 }
 
+/* 데스크탑: 버튼 넉넉하게 정렬 */
+@media (min-width: 1024px) {
+  .map-link-buttons {
+    gap: 40px;
+  }
+
+  .map-link-buttons img {
+    width: 130px;
+  }
+}
 /* 지도 관련 END */
 
 /* 텍스트 복사 버튼 스타일 */
