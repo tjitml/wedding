@@ -108,8 +108,8 @@ body {
   margin-top: 16px;
   display: flex;
   justify-content: center;
-  gap: 16px; /* 버튼 사이 간격 */
-  flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
+  gap: 24px; /* PC 기준 간격 넓게 */
+  flex-wrap: wrap;
 }
 
 .map-link-buttons img {
@@ -122,6 +122,14 @@ body {
 .map-link-buttons img:hover {
   transform: scale(1.05);
 }
+
+/* 모바일에서 버튼 크기 줄이기 */
+@media (max-width: 480px) {
+  .map-link-buttons img {
+    width: 100px; /* 더 작게 줄이기 */
+  }
+}
+
 /* 지도 관련 END */
 
 /* 텍스트 복사 버튼 스타일 */
