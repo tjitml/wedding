@@ -103,6 +103,22 @@ body {
     }
 }
 /* 카카오 맵 관련 END */
+/* 네이버 지도 관련 */
+.map-link-button {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.map-link-button img {
+  width: 120px; /* 필요에 따라 크기 조절 */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.map-link-button img:hover {
+  transform: scale(1.05);
+}
+/* 네이버 지도 관련 END */
 
 /* 텍스트 복사 버튼 스타일 */
 .copy-button-container {
