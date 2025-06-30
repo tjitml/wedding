@@ -91,7 +91,21 @@
         });
     </script>
 
-     <!-- 이미지 클릭 모달 스크립트 -->
+    <!-- 이미지 클릭 모달 스크립트 -->
     <script src="script.js"></script>
+    <!-- 티맵, 카카오내비 경고창 -->
+    <script>
+        function handleMobileLink(uri) {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+            if (isMobile) {
+                window.location.href = uri;
+            }     
+            else {
+                alert("모바일에서 확인하실 수 있습니다.");
+            }
+        }
+    </script>
+
 </body>
 </html>
