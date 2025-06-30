@@ -137,7 +137,7 @@ body {
 /* 데스크탑: 버튼 넉넉하게 정렬 */
 @media (min-width: 1024px) {
   .map-link-buttons {
-    gap: 60px;
+    gap: 120px;
   }
 
   .map-link-buttons img {
