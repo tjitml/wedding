@@ -103,22 +103,26 @@ body {
     }
 }
 /* 카카오 맵 관련 END */
-/* 네이버 지도 관련 */
-.naver-map-button {
+/* 지도 관련 */
+.map-link-buttons {
   margin-top: 16px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* 버튼 사이 간격 */
+  flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
 }
 
-.naver-map-button img {
-  width: 120px; /* 필요에 따라 크기 조절 */
+.map-link-buttons img {
+  width: 120px;
+  height: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.naver-map-button img:hover {
+.map-link-buttons img:hover {
   transform: scale(1.05);
 }
-/* 네이버 지도 관련 END */
+/* 지도 관련 END */
 
 /* 텍스트 복사 버튼 스타일 */
 .copy-button-container {
