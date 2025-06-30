@@ -113,7 +113,8 @@ body {
 }
 
 .map-link-buttons img {
-  width: 120px;
+  width: 28vw; /* 화면 너비 기준 비율 */
+  max-width: 130px; /* 최대 크기 제한 */
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
