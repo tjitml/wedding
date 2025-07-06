@@ -42,11 +42,13 @@ body {
     /*border-radius: 8px; /* 모서리를 둥글게 */
     /*cursor: pointer;
     transition: transform 0.2s;*/
-  width: 100%;
-  aspect-ratio: 1/1;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .thumbnail:hover {
