@@ -13,76 +13,71 @@
             user-select: none !important;
             -webkit-user-drag: none !important;
             -webkit-tap-highlight-color: transparent;
-            touch-action: none !important; /* 모든 터치 반응 제거 */
+            touch-action: none !important;
         }
         
         img {
             -webkit-user-drag: none !important;
             user-drag: none !important;
+            pointer-events: auto;
         }
     </style>
-
-
-
-
 </head>
 <body>
     <div class="container">
         <h1>저희의 결혼식에 초대합니다!</h1>
 
-        <!-- 이미지 컨테이너 -->
-        <div class="image-container">
-            <img src="image1.jpg" alt="배경 이미지" class="main-image">
-        </div>
-
-        <!-- 이미지 3x3 배열 -->
-        <div class="image-grid">
-            <img src="s_image1.jpg" alt="이미지 1" class="thumbnail">
-            <img src="s_image2.jpg" alt="이미지 2" class="thumbnail">
-            <img src="s_image3.jpg" alt="이미지 3" class="thumbnail">
-            <img src="s_image4.jpg" alt="이미지 4" class="thumbnail">
-            <img src="s_image5.jpg" alt="이미지 5" class="thumbnail">
-            <img src="s_image6.jpg" alt="이미지 6" class="thumbnail">
-            <img src="s_image7.jpg" alt="이미지 7" class="thumbnail">
-            <img src="s_image8.jpg" alt="이미지 8" class="thumbnail">
-            <img src="s_image9.jpg" alt="이미지 9" class="thumbnail">
-        </div>
-
-        <p>2026년 1월 17일 오후 12시</p>
-        <p>건대 스타시티 아트홀</p>
-        <!-- <a href="https://maps.google.com" target="_blank">위치 보기</a> -->
-        <!-- 1. 지도 노드 -->
-        <div id="map" class="map-container"></div>
-
-        <!-- 지도 버튼 -->
-        <div class="map-link-buttons">
-            <a href="#" onclick="openNaverMap(event)">
-                <img src="naver_map.jpg" alt="네이버지도에서 보기">
-            </a>
-            <a href="tmap://route?goalx=127.07142&goaly=37.54072&goalname=스타시티%20아트홀" onclick="return handleMobileLink(event)">
-                <img src="t_map.jpg" alt="Tmap으로 보기">
-            </a>
-            <a href="https://map.kakao.com/link/to/스타시티 아트홀,37.54072,127.07142" onclick="return handleMobileLink(event)">
-                <img src="kakao_navi.jpg" alt="카카오맵에서 보기">
-            </a>
-        </div>
-
-
-        <!-- 텍스트 복사 버튼 -->
-        <div class="copy-button-container">
-            <img src="icon1.png" alt="복사 버튼" class="copy-button" data-text="1002244079493">
-        </div>
-        <!-- 복사 완료 알림 -->
-        <div id="copy-alert" class="copy-alert">텍스트가 복사되었습니다!</div>
+    <!-- 이미지 컨테이너 -->
+    <div class="image-container">
+        <img src="image1.jpg" alt="배경 이미지" class="main-image" draggable="false">
     </div>
-    
-    <!-- 모달 -->
+
+    <!-- 이미지 3x3 배열 -->
+    <div class="image-grid">
+        <img src="s_image1.jpg" alt="이미지 1" class="thumbnail" draggable="false">
+        <img src="s_image2.jpg" alt="이미지 2" class="thumbnail" draggable="false">
+        <img src="s_image3.jpg" alt="이미지 3" class="thumbnail" draggable="false">
+        <img src="s_image4.jpg" alt="이미지 4" class="thumbnail" draggable="false">
+        <img src="s_image5.jpg" alt="이미지 5" class="thumbnail" draggable="false">
+        <img src="s_image6.jpg" alt="이미지 6" class="thumbnail" draggable="false">
+        <img src="s_image7.jpg" alt="이미지 7" class="thumbnail" draggable="false">
+        <img src="s_image8.jpg" alt="이미지 8" class="thumbnail" draggable="false">
+        <img src="s_image9.jpg" alt="이미지 9" class="thumbnail" draggable="false">
+    </div>
+
+    <p>2026년 1월 17일 오후 12시</p>
+    <p>건대 스타시티 아트홀</p>
+
+    <!-- 지도 -->
+    <div id="map" class="map-container"></div>
+
+    <!-- 지도 버튼 -->
+    <div class="map-link-buttons">
+        <a href="#" onclick="openNaverMap(event)">
+            <img src="naver_map.jpg" alt="네이버지도에서 보기" draggable="false">
+        </a>
+        <a href="tmap://route?goalx=127.07142&goaly=37.54072&goalname=스타시티%20아트홀" onclick="return handleMobileLink(event)">
+            <img src="t_map.jpg" alt="Tmap으로 보기" draggable="false">
+        </a>
+        <a href="https://map.kakao.com/link/to/스타시티 아트홀,37.54072,127.07142" onclick="return handleMobileLink(event)">
+            <img src="kakao_navi.jpg" alt="카카오맵에서 보기" draggable="false">
+        </a>
+    </div>
+
+    <!-- 텍스트 복사 버튼 -->
+    <div class="copy-button-container">
+        <img src="icon1.png" alt="복사 버튼" class="copy-button" data-text="1002244079493" draggable="false">
+    </div>
+    <div id="copy-alert" class="copy-alert">텍스트가 복사되었습니다!</div>
+    </div>
+
+  <!-- 모달 -->
     <div id="image-modal" class="modal">
         <span class="close">&times;</span>
-        <img id="modal-image" class="modal-content" alt="확대된 이미지">
+        <img id="modal-image" class="modal-content" alt="확대된 이미지" draggable="false">
     </div>
 
-    <!-- Kakao Map SDK 불러오기 -->
+  <!-- Kakao Map SDK -->
     <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=09eb5285425954e3c41cc3173bebd1d1&autoload=false"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -110,66 +105,58 @@
         });
     </script>
 
-    <!-- 이미지 클릭 모달 스크립트 -->
-    <script src="script.js"></script>
-    <!-- 티맵, 카카오내비 경고창 -->
+  <!-- 지도 버튼 경고창 -->
     <script>
-        function handleMobileLink(event) {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            
-            if (!isMobile) {
-                event.preventDefault(); // PC에서는 링크 실행 방지
-                alert("모바일에서 확인하실 수 있습니다.");
-                return false;
-            }
-            
-            // 모바일은 기본 링크 동작 그대로 진행
-            return true;
-        }
-    </script>
-    <script>
-        function openNaverMap(event) {
+    function handleMobileLink(event) {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
             event.preventDefault();
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-            // 앱으로 연결
-                window.location.href = "nmap://place?lat=37.54072&lng=127.07142&name=스타시티아트홀";
-            } 
-            else {
-            // PC 브라우저 → 웹 링크로 이동
-                window.open("https://map.naver.com/v5/search/스타시티아트홀/place/13541226", "_blank");
-            }
+            alert("모바일에서 확인하실 수 있습니다.");
+            return false;
         }
+        return true;
+    }
+    
+    function openNaverMap(event) {
+        event.preventDefault();
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            window.location.href = "nmap://place?lat=37.54072&lng=127.07142&name=스타시티아트홀";
+        } 
+        else {
+            window.open("https://map.naver.com/v5/search/스타시티아트홀/place/13541226", "_blank");
+        }
+    }
     </script>
+
+  <!-- ✅ 길게 누르기 완전 차단 -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 전체 화면에서 contextmenu 차단
             document.addEventListener("contextmenu", e => e.preventDefault(), { passive: false });
-            
-            // 터치 길게 누르기 차단
+    
             let longPressTimer = null;
-            
+    
             const cancelLongPress = () => {
                 if (longPressTimer) {
                     clearTimeout(longPressTimer);
                     longPressTimer = null;
                 }
             };
-            
+    
             document.addEventListener("touchstart", e => {
                 cancelLongPress();
                 longPressTimer = setTimeout(() => {
                     e.preventDefault();
-                    }, 300);
+                }, 100);
             }, { passive: false });
-            
+    
             document.addEventListener("touchend", cancelLongPress);
             document.addEventListener("touchmove", cancelLongPress);
             document.addEventListener("touchcancel", cancelLongPress);
         });
     </script>
 
-
+  <!-- 이미지 클릭 모달 및 복사 기능은 기존 script.js에 포함 -->
+    <script src="script.js"></script>
 </body>
 </html>
