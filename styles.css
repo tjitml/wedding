@@ -35,8 +35,13 @@ img {
 }
 
 .main-image {
-  width: 100%;
+  /*width: 100%;
   height: auto; /* 원본 비율 유지 */
+  /*border-radius: 10px;*/
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 또는 원하는 비율 */
+  background-size: cover;
+  background-position: center;
   border-radius: 10px;
 }
 
