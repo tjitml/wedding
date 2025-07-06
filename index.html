@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         html, body {
-            -webkit-touch-callout: none;
+            -webkit-touch-callout: none; /* iOS: 길게 눌러도 메뉴 안 뜨게 */
             -webkit-user-select: none;
             user-select: none;
             -webkit-user-drag: none;
+            touch-action: manipulation; /* 확대/스크롤 최소화 */
         }
         
         img {
@@ -19,6 +20,7 @@
             user-drag: none;
         }
     </style>
+
 
 </head>
 <body>
@@ -139,27 +141,25 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const images = document.querySelectorAll("img");
-        
-            images.forEach(img => {
-            // 이미지 길게 누르기 방지
-                img.addEventListener("contextmenu", e => e.preventDefault());            
-                img.addEventListener("touchstart", e => {
-                    img._longPressTimer = setTimeout(() => {
+            // 전체 화면에서 길게 누르기 방지
+            document.body.addEventListener("contextmenu", e => e.preventDefault());
+            
+            let longPressTimer = null;
+            
+            document.body.addEventListener("touchstart", e => {
+                longPressTimer = setTimeout(() => {
                     e.preventDefault();
-                    }, 500);
-                });
+                }, 400); // 400ms 이상 누르면 차단
+            });
             
-                img.addEventListener("touchend", () => {
-                    clearTimeout(img._longPressTimer);
-                });
+            document.body.addEventListener("touchend", () => {
+                clearTimeout(longPressTimer);
+            });
             
-                img.addEventListener("touchmove", () => {
-                    clearTimeout(img._longPressTimer);
-                });
+            document.body.addEventListener("touchmove", () => {
+                clearTimeout(longPressTimer);
             });
         });
     </script>
-
 </body>
 </html>
