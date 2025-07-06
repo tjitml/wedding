@@ -12,15 +12,14 @@
             -webkit-user-select: none;
             user-select: none;
             -webkit-user-drag: none;
-            touch-action: none; /* 터치 확대/스크롤 등 차단 */
         }
         
         img {
             -webkit-user-drag: none;
             user-drag: none;
-            pointer-events: none; /* 이미지에 마우스/터치 이벤트 자체 차단 */
         }
     </style>
+
 </head>
 <body>
     <div class="container">
@@ -140,20 +139,27 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 전체 화면에서 길게 누르기 방지
-            document.body.addEventListener("contextmenu", e => e.preventDefault());
-            document.body.addEventListener("touchstart", e => {
-                document.body._longPressTimer = setTimeout(() => {
-                e.preventDefault();
-                }, 500);
-            });
-            document.body.addEventListener("touchend", () => {
-                clearTimeout(document.body._longPressTimer);
-            });
-            document.body.addEventListener("touchmove", () => {
-                clearTimeout(document.body._longPressTimer);
+            const images = document.querySelectorAll("img");
+        
+            images.forEach(img => {
+            // 이미지 길게 누르기 방지
+                img.addEventListener("contextmenu", e => e.preventDefault());            
+                img.addEventListener("touchstart", e => {
+                    img._longPressTimer = setTimeout(() => {
+                    e.preventDefault();
+                    }, 500);
+                });
+            
+                img.addEventListener("touchend", () => {
+                    clearTimeout(img._longPressTimer);
+                });
+            
+                img.addEventListener("touchmove", () => {
+                    clearTimeout(img._longPressTimer);
+                });
             });
         });
     </script>
+
 </body>
 </html>
