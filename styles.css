@@ -4,6 +4,19 @@ body {
   padding: 0;
   background-color: #f5efe5; /* 은은한 베이지 배경 */
   color: #444;
+
+  /* ✅ 추가된 부분: 모바일 터치 반응 차단 */
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none !important;
+}
+
+img {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
 }
 
 .container {
@@ -17,99 +30,93 @@ body {
 }
 
 .image-container {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .main-image {
-    width: 100%;
-    height: auto; /* 원본 비율 유지 */
-    border-radius: 10px;
+  width: 100%;
+  height: auto; /* 원본 비율 유지 */
+  border-radius: 10px;
 }
 
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 항상 3열 */
-    gap: 10px; /* 이미지 간 간격 */
-    margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 항상 3열 */
+  gap: 10px; /* 이미지 간 간격 */
+  margin: 20px 0;
 }
 
 .thumbnail {
-    /*width: 100%;        /* 부모 컨테이너 너비에 맞춤 */
-    /*height: auto;       /* 높이는 자동으로 조정 */
-    /*aspect-ratio: 1/1;  /* 1:1 비율 유지 */
-    /*object-fit: cover;  /* 이미지를 자르고 비율 유지 */
-    /*border-radius: 8px; /* 모서리를 둥글게 */
-    /*cursor: pointer;
-    transition: transform 0.2s;*/
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .thumbnail:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    overflow: auto;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    display: block;
-    margin: auto;
-    border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
 }
 
 .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    transition: color 0.2s;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .close:hover {
-    color: #bbb;
+  color: #bbb;
 }
 
 /* 카카오 맵 관련 */
 .map-container {
-    margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
-    border-radius: 10px;    /* 모서리 둥글게 */
-    width: 100%;
-    height: 300px;          /* 지도 높이 명확히 지정 */
-    overflow: hidden;
+  margin: 20px auto;      /* 상하 간격 및 가운데 정렬 */
+  border-radius: 10px;    /* 모서리 둥글게 */
+  width: 100%;
+  height: 300px;          /* 지도 높이 명확히 지정 */
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
-    .map-container {
-        height: 250px;      /* 태블릿 비율 */
-    }
+  .map-container {
+    height: 250px;      /* 태블릿 비율 */
+  }
 }
 
 @media (max-width: 480px) {
-    .map-container {
-        height: 200px;      /* 모바일 비율 */
-    }
+  .map-container {
+    height: 200px;      /* 모바일 비율 */
+  }
 }
 /* 카카오 맵 관련 END */
+
 /* 지도 관련 */
 .map-link-buttons {
   margin-top: 16px;
@@ -156,46 +163,46 @@ body {
 
 /* 텍스트 복사 버튼 스타일 */
 .copy-button-container {
-    margin: 20px auto;
-    text-align: center;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .copy-button {
-    width: 50px; /* 버튼 이미지 크기 */
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.2s;
+  width: 50px; /* 버튼 이미지 크기 */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .copy-button:hover {
-    transform: scale(1.1); /* 버튼 클릭 시 확대 효과 */
+  transform: scale(1.1); /* 버튼 클릭 시 확대 효과 */
 }
 
 .copy-alert {       /* 복사 완료 알림 스타일 */
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f3efec;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    display: none; /* 기본적으로 숨김 */
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f3efec;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none; /* 기본적으로 숨김 */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .copy-alert.show {
-    display: block; /* 표시 */
-    opacity: 1;     /* 완전히 보임 */
+  display: block; /* 표시 */
+  opacity: 1;     /* 완전히 보임 */
 }
 /* 텍스트 복사 관련 END */
 
 h1 {
-    font-size: 1.5em;
-    color: #5a9;
-    margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #5a9;
+  margin-bottom: 10px;
 }
