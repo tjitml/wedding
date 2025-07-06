@@ -2,10 +2,21 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>모바일 청첩장</title>
     <meta property="og:image" content="s_image9.jpg">
     <link rel="stylesheet" href="styles.css">
+    <style>    /* 터치 길게 하는 것 방지 */
+        * {
+            -webkit-touch-callout: none; /* iOS: 길게 눌러도 메뉴 안 뜨게 */
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
