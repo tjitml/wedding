@@ -134,7 +134,29 @@
             }
         }
     </script>
-    
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () 
+        {
+            const images = document.querySelectorAll("img");
+            
+            images.forEach(img => {
+                img.addEventListener("contextmenu", e => e.preventDefault());
+        
+                img.addEventListener("touchstart", e => {
+                    img._longPressTimer = setTimeout(() => {
+                    e.preventDefault();
+                    }, 500);
+                });
+        
+                img.addEventListener("touchend", () => {
+                    clearTimeout(img._longPressTimer);
+                });
+        
+                img.addEventListener("touchmove", () => {
+                    clearTimeout(img._longPressTimer);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
