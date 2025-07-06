@@ -13,7 +13,7 @@
             user-select: none !important;
             -webkit-user-drag: none !important;
             -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
+            touch-action: none !important; /* 모든 터치 반응 제거 */
         }
         
         img {
@@ -21,6 +21,7 @@
             user-drag: none !important;
         }
     </style>
+
 
 
 
@@ -143,8 +144,8 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 모든 요소에서 contextmenu 차단
-            document.body.addEventListener("contextmenu", e => e.preventDefault());
+            // 전체 화면에서 contextmenu 차단
+            document.addEventListener("contextmenu", e => e.preventDefault(), { passive: false });
             
             // 터치 길게 누르기 차단
             let longPressTimer = null;
@@ -156,18 +157,19 @@
                 }
             };
             
-            document.body.addEventListener("touchstart", e => {
+            document.addEventListener("touchstart", e => {
                 cancelLongPress();
                 longPressTimer = setTimeout(() => {
                     e.preventDefault();
-                }, 300); // 300ms 이상 누르면 차단
-            });
+                    }, 300);
+            }, { passive: false });
             
-            document.body.addEventListener("touchend", cancelLongPress);
-            document.body.addEventListener("touchmove", cancelLongPress);
-            document.body.addEventListener("touchcancel", cancelLongPress);
+            document.addEventListener("touchend", cancelLongPress);
+            document.addEventListener("touchmove", cancelLongPress);
+            document.addEventListener("touchcancel", cancelLongPress);
         });
     </script>
+
 
 </body>
 </html>
