@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         html, body {
-            -webkit-touch-callout: none; /* iOS: 길게 눌러도 메뉴 안 뜨게 */
-            -webkit-user-select: none;
-            user-select: none;
-            -webkit-user-drag: none;
-            touch-action: manipulation; /* 확대/스크롤 최소화 */
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            -webkit-user-drag: none !important;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
         img {
-            -webkit-user-drag: none;
-            user-drag: none;
+            -webkit-user-drag: none !important;
+            user-drag: none !important;
         }
     </style>
+
 
 
 </head>
@@ -141,25 +143,31 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 전체 화면에서 길게 누르기 방지
+            // 모든 요소에서 contextmenu 차단
             document.body.addEventListener("contextmenu", e => e.preventDefault());
             
+            // 터치 길게 누르기 차단
             let longPressTimer = null;
             
+            const cancelLongPress = () => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
+            
             document.body.addEventListener("touchstart", e => {
+                cancelLongPress();
                 longPressTimer = setTimeout(() => {
                     e.preventDefault();
-                }, 400); // 400ms 이상 누르면 차단
+                }, 300); // 300ms 이상 누르면 차단
             });
             
-            document.body.addEventListener("touchend", () => {
-                clearTimeout(longPressTimer);
-            });
-            
-            document.body.addEventListener("touchmove", () => {
-                clearTimeout(longPressTimer);
-            });
+            document.body.addEventListener("touchend", cancelLongPress);
+            document.body.addEventListener("touchmove", cancelLongPress);
+            document.body.addEventListener("touchcancel", cancelLongPress);
         });
     </script>
+
 </body>
 </html>
