@@ -39,7 +39,8 @@ img {
   height: auto; /* 원본 비율 유지 */
   /*border-radius: 10px;*/
   width: 100%;
-  aspect-ratio: 16 / 9; /* 또는 원하는 비율 */
+  /*aspect-ratio: 16 / 9; /* 또는 원하는 비율 */
+  height: auto; /* 원본 비율 유지 */
   background-size: cover;
   background-position: center;
   border-radius: 10px;
