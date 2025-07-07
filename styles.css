@@ -11,7 +11,7 @@ body {
   user-select: none !important;
   -webkit-user-drag: none !important;
   -webkit-tap-highlight-color: transparent;
-  touch-action: none !important;
+  touch-action: pan-y;
 }
 
 img {
