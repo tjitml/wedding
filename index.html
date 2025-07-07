@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>모바일 청첩장</title>
-  <meta property="og:image" content="s_image9.jpg">
-  <link rel="stylesheet" href="styles.css">
+  <meta property="og:image" content="s_image9.jpg" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
     <h1>저희의 결혼식에 초대합니다!</h1>
 
-    <!-- <div class="image-container">
-      <img src="image1.jpg" alt="배경 이미지" class="main-image" draggable="false">
-    </div> -->
     <div class="image-container">
-      <img src="image1.jpg" alt="결혼식 메인 이미지" class="main-image" draggable="false" oncontextmenu="return false;">
+      <img src="image1.jpg" alt="결혼식 메인 이미지" class="main-image" draggable="false" oncontextmenu="return false;" loading="lazy" />
     </div>
 
-
     <div class="image-grid">
+      <!-- 썸네일은 background-image이므로 lazy loading은 JS로 처리 -->
       <div class="thumbnail" style="background-image: url('s_image1.jpg');" data-image="s_image1.jpg"></div>
       <div class="thumbnail" style="background-image: url('s_image2.jpg');" data-image="s_image2.jpg"></div>
       <div class="thumbnail" style="background-image: url('s_image3.jpg');" data-image="s_image3.jpg"></div>
@@ -34,57 +31,33 @@
     <p>2026년 1월 17일 오후 12시</p>
     <p>건대 스타시티 아트홀</p>
 
-    <div id="map" class="map-container"></div>
+    <div id="map" class="map-container" data-loaded="false"></div>
 
     <div class="map-link-buttons">
       <a href="#" onclick="openNaverMap(event)">
-        <img src="naver_map.jpg" alt="네이버지도에서 보기" draggable="false">
+        <img src="naver_map.jpg" alt="네이버지도에서 보기" draggable="false" loading="lazy" />
       </a>
       <a href="tmap://route?goalx=127.07142&goaly=37.54072&goalname=스타시티%20아트홀" onclick="return handleMobileLink(event)">
-        <img src="t_map.jpg" alt="Tmap으로 보기" draggable="false">
+        <img src="t_map.jpg" alt="Tmap으로 보기" draggable="false" loading="lazy" />
       </a>
       <a href="https://map.kakao.com/link/to/스타시티 아트홀,37.54072,127.07142" onclick="return handleMobileLink(event)">
-        <img src="kakao_navi.jpg" alt="카카오맵에서 보기" draggable="false">
+        <img src="kakao_navi.jpg" alt="카카오맵에서 보기" draggable="false" loading="lazy" />
       </a>
     </div>
 
     <div class="copy-button-container">
-      <img src="icon1.png" alt="복사 버튼" class="copy-button" data-text="1002244079493" draggable="false">
+      <img src="icon1.png" alt="복사 버튼" class="copy-button" data-text="1002244079493" draggable="false" loading="lazy" />
     </div>
     <div id="copy-alert" class="copy-alert">텍스트가 복사되었습니다!</div>
   </div>
 
   <div id="image-modal" class="modal">
     <span class="close">&times;</span>
-    <img id="modal-image" class="modal-content" alt="확대된 이미지">
+    <img id="modal-image" class="modal-content" alt="확대된 이미지" />
   </div>
 
-  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=09eb5285425954e3c41cc3173bebd1d1&autoload=false"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      kakao.maps.load(function () {
-        const container = document.getElementById("map");
-        const options = {
-          center: new kakao.maps.LatLng(37.54072, 127.07142),
-          level: 3,
-          draggable: true,
-          disableDoubleClickZoom: true
-        };
-        const map = new kakao.maps.Map(container, options);
-        const markerPosition = new kakao.maps.LatLng(37.54072, 127.07142);
-        const marker = new kakao.maps.Marker({
-          position: markerPosition,
-          map: map
-        });
-
-        const infowindow = new kakao.maps.InfoWindow({
-          content: '<div style="padding:5px;font-size:13px;">스타시티 아트홀 예식장</div>',
-          position: markerPosition
-        });
-        infowindow.open(map, marker);
-      });
-    });
-
+    // 지도 링크 처리
     function handleMobileLink(event) {
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       if (!isMobile) {
@@ -105,38 +78,45 @@
       }
     }
 
-    // 모달 열기
-    document.addEventListener("DOMContentLoaded", function () {
+    // 메인 스크립트
+    document.addEventListener("DOMContentLoaded", () => {
+      // 모달
       const thumbnails = document.querySelectorAll(".thumbnail");
       const modal = document.getElementById("image-modal");
       const modalImage = document.getElementById("modal-image");
       const closeModal = document.querySelector(".close");
 
       thumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener("click", function () {
-          const imageSrc = this.dataset.image;
-          modalImage.src = imageSrc;
+        thumbnail.addEventListener("click", () => {
+          modalImage.src = thumbnail.dataset.image;
           modal.style.display = "block";
         });
       });
 
-      closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
+      closeModal.addEventListener("click", () => modal.style.display = "none");
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
       });
 
-      modal.addEventListener("click", function (e) {
-        if (e.target === modal) {
-          modal.style.display = "none";
-        }
-      });
-    });
+      // 복사 버튼
+      const copyButtons = document.querySelectorAll(".copy-button");
+      const copyAlert = document.getElementById("copy-alert");
 
-    // 길게 누르기 차단
-    document.addEventListener("DOMContentLoaded", function () {
+      copyButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const textToCopy = button.dataset.text;
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            copyAlert.textContent = "텍스트가 복사되었습니다!";
+            copyAlert.classList.add("show");
+            setTimeout(() => copyAlert.classList.remove("show"), 3000);
+          });
+        });
+      });
+
+      // 롱프레스 차단
       document.addEventListener("contextmenu", e => e.preventDefault(), { passive: false });
 
       let longPressTimer = null;
-
       const cancelLongPress = () => {
         if (longPressTimer) {
           clearTimeout(longPressTimer);
@@ -146,19 +126,46 @@
 
       document.addEventListener("touchstart", e => {
         cancelLongPress();
-        longPressTimer = setTimeout(() => {
-          e.preventDefault();
-        }, 100);
+        longPressTimer = setTimeout(() => e.preventDefault(), 100);
       }, { passive: false });
 
       document.addEventListener("touchend", cancelLongPress);
       document.addEventListener("touchmove", cancelLongPress);
       document.addEventListener("touchcancel", cancelLongPress);
 
-      const mainImg = document.querySelector(".main-image");
-      mainImg.addEventListener("contextmenu", e => {
-        e.preventDefault();
-      });
+      // 지도 지연 로딩
+      const mapContainer = document.getElementById("map");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && mapContainer.dataset.loaded === "false") {
+            mapContainer.dataset.loaded = "true";
+            const script = document.createElement("script");
+            script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=09eb5285425954e3c41cc3173bebd1d1&autoload=false";
+            script.onload = () => {
+              kakao.maps.load(() => {
+                const container = document.getElementById("map");
+                const options = {
+                  center: new kakao.maps.LatLng(37.54072, 127.07142),
+                  level: 3,
+                  draggable: true,
+                  disableDoubleClickZoom: true
+                };
+                const map = new kakao.maps.Map(container, options);
+                const markerPosition = new kakao.maps.LatLng(37.54072, 127.07142);
+                const marker = new kakao.maps.Marker({ position: markerPosition, map });
+                const infowindow = new kakao.maps.InfoWindow({
+                  content: '<div style="padding:5px;font-size:13px;">스타시티 아트홀 예식장</div>',
+                  position: markerPosition
+                });
+                infowindow.open(map, marker);
+              });
+            };
+            document.body.appendChild(script);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(mapContainer);
     });
   </script>
 </body>
