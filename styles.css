@@ -43,11 +43,14 @@ img {
   border-radius: 10px;
   display: block;
 
-  -webkit-touch-callout: none !important;  /* iOS 터치콜아웃 차단 */
-  -webkit-user-drag: none !important;      /* iOS 드래그 차단 */
-  -webkit-user-select: none !important;    /* iOS/웹셀렉트 차단 */
-  user-select: none !important;            /* 텍스트/이미지 선택 차단 */
-  touch-action: manipulation;              /* 터치 동작 최소화 */
+  -webkit-touch-callout: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  touch-action: none !important;
+
+  /* ↓ 최종 방어막 */
+  pointer-events: none !important;
 }
 
 .image-grid {
