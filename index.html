@@ -153,6 +153,11 @@
       document.addEventListener("touchend", cancelLongPress);
       document.addEventListener("touchmove", cancelLongPress);
       document.addEventListener("touchcancel", cancelLongPress);
+
+      const mainImg = document.querySelector(".main-image");
+      mainImg.addEventListener("contextmenu", e => {
+        e.preventDefault();
+      });
     });
   </script>
 </body>
