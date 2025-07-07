@@ -114,24 +114,29 @@
       });
 
       // 롱프레스 차단
-      document.addEventListener("contextmenu", e => e.preventDefault(), { passive: false });
+      const protectElements = document.querySelectorAll('.main-image, .copy-button');
 
-      let longPressTimer = null;
-      const cancelLongPress = () => {
-        if (longPressTimer) {
+      protectElements.forEach(el => {
+        el.addEventListener("contextmenu", e => e.preventDefault(), { passive: false });
+      
+        let longPressTimer = null;
+        
+        const cancelLongPress = () => {
+          if (longPressTimer) {
           clearTimeout(longPressTimer);
           longPressTimer = null;
-        }
-      };
-
-      document.addEventListener("touchstart", e => {
+          }
+        };
+      
+        el.addEventListener("touchstart", e => {
         cancelLongPress();
         longPressTimer = setTimeout(() => e.preventDefault(), 100);
-      }, { passive: false });
-
-      document.addEventListener("touchend", cancelLongPress);
-      document.addEventListener("touchmove", cancelLongPress);
-      document.addEventListener("touchcancel", cancelLongPress);
+        }, { passive: false });
+      
+        el.addEventListener("touchend", cancelLongPress);
+        el.addEventListener("touchmove", cancelLongPress);
+        el.addEventListener("touchcancel", cancelLongPress);
+      });
 
       // 지도 지연 로딩
       const mapContainer = document.getElementById("map");
