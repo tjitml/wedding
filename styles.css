@@ -38,6 +38,11 @@ img {
   /*width: 100%;
   height: auto; /* 원본 비율 유지 */
   /*border-radius: 10px;*/
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+
   -webkit-touch-callout: none !important;  /* iOS 터치콜아웃 차단 */
   -webkit-user-drag: none !important;      /* iOS 드래그 차단 */
   -webkit-user-select: none !important;    /* iOS/웹셀렉트 차단 */
