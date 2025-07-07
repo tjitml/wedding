@@ -39,13 +39,9 @@ img {
   height: auto; /* 원본 비율 유지 */
   /*border-radius: 10px;*/
   width: 100%;
-  padding-top: 66.67%; /* 원본 비율 유지 */
-  background-image: url('image1.jpg');
-  background-size: cover;
-  background-position: center;
+  height: auto;
   border-radius: 10px;
-
-
+  display: block;
 }
 
 .image-grid {
